@@ -92,9 +92,11 @@
 //表头视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
     HeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 2*(kDeviceHeight/9))];
     HeaderView.backgroundColor = NAVIGATION_COLOR;
     
+    //顶部视图
     topView = [UIView new];
     topView.backgroundColor = [UIColor clearColor];
     [HeaderView addSubview:topView];
@@ -111,6 +113,7 @@
         make.width.and.height.equalTo(topView);
     }];
     
+    //头像及约束关系
     headerImageV = [[UIImageView alloc] init];
     headerImageV.clipsToBounds = YES;
     headerImageV.layer.cornerRadius = (HeaderView.frame.size.height/2) / 2.0f;
@@ -132,6 +135,7 @@
         }
     }];
     
+    //商店名称
     UILabel *shopNameL = [[UILabel alloc] init];
     shopNameL.textColor = [UIColor whiteColor];
     shopNameL.font = [UIFont systemFontOfSize:20];
@@ -143,6 +147,7 @@
         make.left.and.right.equalTo(buttomView);
     }];
     
+    //地址
     UILabel *addressL = [[UILabel alloc] init];
     addressL.font = [UIFont systemFontOfSize:10];
     addressL.textAlignment = NSTextAlignmentRight;
@@ -150,6 +155,7 @@
     addressL.text = @"天河区万佳广场首层234号";
     [HeaderView addSubview:addressL];
     
+    //gw号
     UILabel *gwNumberL = [[UILabel alloc] init];
     gwNumberL.font = addressL.font;
     gwNumberL.textColor = addressL.textColor;
@@ -157,6 +163,7 @@
     gwNumberL.text = @"  GW88888888";
     [HeaderView addSubview:gwNumberL];
     
+    //地址的约束关系
     [addressL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(shopNameL.mas_bottom);
         make.left.equalTo(buttomView.mas_left);
@@ -165,6 +172,7 @@
         make.bottom.equalTo(buttomView.mas_bottom);
     }];
     
+    //gw号的约束关系
     [gwNumberL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(shopNameL.mas_bottom);
         make.left.equalTo(addressL.mas_right);
