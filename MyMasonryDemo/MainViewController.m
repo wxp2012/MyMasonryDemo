@@ -44,6 +44,7 @@
     //cell标题
     _cellNameArr = [[NSArray alloc] initWithObjects:@"更新网上可用库存",@"订单查询",@"开始送货",@"扫描确认收货",@"店铺设定", nil];
     
+    //表视图
     _mainTableV = [[UITableView alloc] init];
     _mainTableV.delegate = self;
     _mainTableV.dataSource = self;
@@ -52,6 +53,7 @@
     _mainTableV.userInteractionEnabled = YES;
     [self.view addSubview:_mainTableV];
     
+    //表视图与主视图的约束
     [_mainTableV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
